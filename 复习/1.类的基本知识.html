@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    /**
+     * 总结：
+     *      1.类中的构造器不是必须写的，要对实例进行一些初始化的操作，如添加指定属性时才写
+     *      2.如果A类继承了B类，且A类中写了构造器，那么A类 构造器中的super是必须调用的（且在其他实例之前）
+     *      3.类中所定义的方法，都是放在了类的原型对象上，供实例去使用
+    */
+      //创建一个Person类
+      class Person {
+        //构造器方法
+        //构造器的this  是 类的实例对象
+        constructor(name, age) {
+          console.log(this);
+          this.name = name;
+          this.age = age;
+        }
+
+        //一般方法
+        speak() {
+          //speak方法放在了  在类的原型对象上，供实例使用
+          //通过Person实例调用speak时，speak中的this就是Person实例（改变this指向除外）
+          console.log(`姓名：${this.name},年龄：${this.age}`);
+        }
+      }
+
+      //   //创建一个Person对象
+      //   const p1 = new Person("tom", 18);
+      //   const p2 = new Person("jerry", 20);
+
+      //   console.log(p1);
+      //   console.log(p2);
+      //   p1.speak();
+      //   p2.speak();
+
+      //创建一个Student类 继承于Person类
+      class Student extends Person {
+        constructor(name, age, grade) {
+          super(name, age);
+          this.grade = grade;
+        }
+
+        //重写父类上的方法
+        speak() {
+          //speak方法放在了  在类的原型对象上，供实例使用
+          //通过Person实例调用speak时，speak中的this就是Person实例（改变this指向除外）
+          console.log(
+            `姓名：${this.name},年龄：${this.age},年级：${this.grade}`
+          );
+        }
+
+        study() {
+          console.log("我在学习");
+        }
+      }
+
+      const s1 = new Student("小明", 12, "高一");
+      console.log(s1);
+      s1.speak();
+      s1.study()
+      const p1 = new Person("小明", 12, "高一");
+      console.log(p1);
+      p1.study()
+    </script>
+  </body>
+</html>
