@@ -17,7 +17,7 @@
         console.log(this); //此处的this是undefined，因为babel编译后开启了严格模式，严格模式禁止自定义的函数指向window
         return <h2>函数式组件(适合简单组件的定义)</h2>;
       }
-
+      
       //2.渲染组件到页面
       ReactDOM.render(<Demo />, document.getElementById("app"));
       /**
