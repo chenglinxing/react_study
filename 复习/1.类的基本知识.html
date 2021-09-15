@@ -8,13 +8,12 @@
   </head>
   <body>
     <script type="text/javascript">
-
-    /**
-     * 总结：
-     *      1.类中的构造器不是必须写的，要对实例进行一些初始化的操作，如添加指定属性时才写
-     *      2.如果A类继承了B类，且A类中写了构造器，那么A类 构造器中的super是必须调用的（且在其他实例之前）
-     *      3.类中所定义的方法，都是放在了类的原型对象上，供实例去使用
-    */
+      /**
+       * 总结：
+       *      1.类中的构造器不是必须写的，要对实例进行一些初始化的操作，如添加指定属性时才写
+       *      2.如果A类继承了B类，且A类中写了构造器，那么A类 构造器中的super是必须调用的（且在其他实例之前）
+       *      3.类中所定义的方法，都是放在了类的原型对象上，供实例去使用
+       */
       //创建一个Person类
       class Person {
         //构造器方法
@@ -63,12 +62,26 @@
         }
       }
 
-      const s1 = new Student("小明", 12, "高一");
-      console.log(s1);
-      s1.speak();
-      s1.study()
-      const p1 = new Person("小明", 12, "高一");
-      console.log(p1);
+      // const s1 = new Student("小明", 12, "高一");
+      // console.log(s1);
+      // s1.speak();
+      // s1.study()
+      // const p1 = new Person("小明", 12, "高一");
+      // console.log(p1);
+
+      class Car {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+
+        a = 1;
+        wheel = 4;
+        static b = 2;
+      }
+
+      const c1 = new Car("奔驰", 100);
+      console.log(c1);
     </script>
   </body>
 </html>

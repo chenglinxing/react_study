@@ -28,7 +28,6 @@
           this.changeWeather = this.changeWeather.bind(this);
         }
 
-        //render调用了几次？ ————1+n次  1是初始化的那次 n是状态更新的次数
         render() {
           console.log("render");
           // console.log(this);
@@ -41,21 +40,14 @@
           );
         }
 
-        //changeWeather调用了几次？ ————点几次调用几次
-        changeWeather() {
-          // changeWeather放在哪里？ ———— Weather的原型对象上，供实例使用
-          // 由于changeWeather是作为onClick的回调，所以不是通过实例调用的  是直接调用
-          // 类中的方法默认开启了局部的严格模式，所以changeWeather中的this为undefined
+        //自定义方法———要用赋值语句的形式+箭头函数
+        changeWeather = () => {
           console.log(this);
           const { isHot } = this.state;
-          //严重注意：状态(state)不可以直接更改,以下为直接更改。
-          // this.state.isHot = !this.state.isHot;
-
-          //状态必须通过setState进行更新 ，且更新是一种合并，不是替换
           this.setState({
             isHot: !isHot,
           });
-        }
+        };
       }
 
       //2.渲染组件到页面
