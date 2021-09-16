@@ -5,11 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .container {
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
-    <input type="file" id="file" name="1" role="input" onchange="handle(this)" />
+    <input
+      type="file"
+      id="file"
+      name="1"
+      role="input"
+      onchange="handle(this)"
+    />
+
+    <hr />
+
+    <div class="container">
+      <!-- <button class="btn btn-theme" onclick="upload2.click()">123</button>
+      <input type="file" name="upload" id="upload2" style="display: none" /> -->
+
+      <input
+        id="uploadBillsInp"
+        type="file"
+        name="file"
+        onchange="UploadFile()"
+        style="display: none"
+      />
+      <button class="popBlueBtn addConfigurationSetBtn" onclick="upload()">
+        上传文件
+      </button>
+    </div>
+
     <script>
       let file = document.getElementById("file");
+      let uploadBillsInp = document.getElementById("uploadBillsInp");
       // file.addEventListener("change", function (e) {
       //   console.log(e.target.files[0]);
       //   console.log(file.files);
@@ -21,6 +52,14 @@
 
       function handle(e) {
         console.log("e", e.files);
+      }
+
+      function upload() {
+        uploadBillsInp.onclick = () => {};
+      }
+
+      function UploadFile(e) {
+        console.log(1);
       }
     </script>
   </body>
