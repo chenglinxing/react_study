@@ -9,7 +9,7 @@
   <body>
     <div id="app"></div>
 
-    <script src="..js/react.development.js"></script>
+    <script src="../js/react.development.js"></script>
     <script src="../js/react-dom.development.js"></script>
     <script src="../js/babel.min.js"></script>
     <script type="text/babel">
@@ -57,6 +57,18 @@
           this.forceUpdate();
         };
 
+        //从props得到一个派生的状态 若state的值任何时候都取决于props，则可以使用getDerivedStateFromProps
+        // static getDerivedStateFromProps(props, state) {
+        //   console.log(props, state, "getDerivedStateFromProps");
+        //   return null;
+        // }
+
+        //在更新之前获取快照
+        getSnapshotBeforeUpdate() {
+          console.log("getSnapshotBeforeUpdate");
+          return 'www';
+        }
+
         //组件将要挂载的钩子
         componentWillMount() {
           console.log("Count---componentWillMount");
@@ -84,8 +96,8 @@
         }
 
         // 组件更新完毕
-        componentDidUpdate() {
-          console.log("Count---componentDidUpdate");
+        componentDidUpdate(preProps, preState,snapShotValue) {
+          console.log("Count---componentDidUpdate", preProps, preState,snapShotValue);
         }
 
         render() {
@@ -154,7 +166,7 @@
         }
       }
       //2.渲染组件
-      ReactDOM.render(<A />, document.getElementById("app"));
+      ReactDOM.render(<Count count={199} />, document.getElementById("app"));
     </script>
   </body>
 </html>
