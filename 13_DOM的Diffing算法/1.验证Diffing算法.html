@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+      //   //1.创建组件
+      //   class Time extends React.Component {
+      //     state = { date: new Date() };
+
+      //     componentDidMount() {
+      //       setInterval(() => {
+      //         this.setState({
+      //           date: new Date(),
+      //         });
+      //       }, 1000);
+      //     }
+
+      //     render() {
+      //       return (
+      //         <div>
+      //           <h1>Hello</h1>
+      //           <input type="text" />
+      //           <span>当前时间：{this.state.date.toTimeString()}</span>
+      //         </div>
+      //       );
+      //     }
+      //   }
+
+      class Demo extends React.Component {
+        state = {
+          arr: [
+            { name: "张三", age: "18", count: 100 },
+            { name: "李四", age: "20", count: 12 },
+          ],
+        };
+        render() {
+          return (
+            <div>
+              <ul>
+                {this.state.arr.map((i, index) => {
+                  if (i.count === 100) {
+                    //   return <li key={index}>{i.count}</li>
+                    let obj = {
+                      id: index,
+                      name: i.name,
+                      age: i.age,
+                      count: i.count / 100,
+                    };
+                    let newArr = [];
+                    for (let it = 0; it < 100; it++) {
+                      newArr.push(obj);
+                    }
+                    // return <li >name:{JSON.stringify(newArr)}</li>;
+                    newArr.map((arrItem, arrIndex) => {
+                      return <li key={arrIndex}>name:{arrItem.name}</li>;
+                    });
+                  }
+                })}
+              </ul>
+            </div>
+          );
+        }
+      }
+      //2.渲染组件
+      ReactDOM.render(<Demo />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
