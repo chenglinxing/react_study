@@ -10,6 +10,7 @@ li {
 li label {
   float: left;
   cursor: pointer;
+  width: 100%;
 }
 
 li label li input {
@@ -19,7 +20,7 @@ li label li input {
   top: -1px;
 }
 
-li button {
+li .btn {
   float: right;
   display: none;
   margin-top: 3px;
