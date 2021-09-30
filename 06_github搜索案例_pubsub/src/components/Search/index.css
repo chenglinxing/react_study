@@ -1,0 +1,15 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(221, 219, 219);
+  padding: 30px;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.5rem;
+}
