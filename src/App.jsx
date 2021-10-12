@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Button} from "antd"
 import {WechatFilled} from "@ant-design/icons"
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 
 import "./App.css";
 class App extends Component {
