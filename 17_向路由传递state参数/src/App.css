@@ -1,0 +1,17 @@
+.app-container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.active{
+    background-color: skyblue;
+    color: red;
+}
+
+
+.menu{
+    width: 100px;
+}
+
+
